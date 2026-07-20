@@ -11,7 +11,7 @@ st.set_page_config(page_title="SK하이닉스 자동 FGI", page_icon="📈", lay
 st.title("🤖 SK하이닉스 공포탐욕지수(FGI) 자동 계산 웹앱")
 st.markdown("야후 파이낸스(Yahoo Finance) API를 통해 최신 주가 데이터를 **자동으로 수집**하여 실시간에 가까운 투자 심리를 분석합니다. (수동 입력 불필요)")
 
-@st.cache_data(ttl=3600) # 1시간 단위로 데이터 캐싱 (API 호출 최적화)
+@st.cache_data(ttl=60) # 1 단위로 데이터 캐싱 (API 호출 최적화)
 def get_hynix_data():
     df = yf.download("000660.KS", period="1y", progress=False)
     # yfinance 최신 버전의 MultiIndex 컬럼 평탄화 처리
